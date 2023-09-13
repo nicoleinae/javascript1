@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="myBrowser">Escolha um navegador</label>
+    <input list="browsers" id="myBrowser" name="myBrowser">
+    <datalist id="browsers">
+        <option value="Chorme"></option>
+        <option value="Firefox"></option>
+        <option value="Opera"></option>
+        <option value="Microsoft Edge"></option>
+
+    </datalist>
+</body>
+</html>
+
+<script>
+    const bairro = prompt("Bairro de entrega:")
+    let taxaEntrega;
+
+    switch(bairro) {
+        case "Centro":
+            taxaEntrega = 5,00;
+            break
+        case "Pacaembu":
+            taxaEntrega = 8,00;
+            break
+        case "Floresta":
+            taxaEntrega = 10,00;
+            break
+        default:
+            taxaEntrega= 15,00;
+    }
+
+    alert(`A taxa de entrega para o ${bairro} é de: R$ ${taxaEntrega.toFixed(2)}`)
+</script>

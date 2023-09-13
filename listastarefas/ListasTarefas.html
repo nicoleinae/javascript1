@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4">
+                <img src="https://media.treasy.com.br/media/2017/06/gest%C3%A3o-de-tarefas-dicas.png" alt="">
+            </div>
+            <div class="col-sm8" id="divQuadro">
+                <h1>Lista Tarefas a Realizar</h1>
+                <form>
+                    <p><label for="inTarefa">Tarefa:</label>
+                        <input type="text" class="form-control" id="inTarefa" required autofocus>          
+                    </p>
+                    <p>
+                        <input type="submit" class="btn btn-primary" value="Adicionar &#10003;">
+                        <input type="button" class="btn btn-info" value="Selecionar &#8645;" id="btSelecionar">
+                        <input type="button" class="btn btn-danger" value="Retificar Selecionada &#10007;" id="btRetificar">
+                        <input type="button" class="btn btn-success" value="Gravar &#9673;" id="btGravar">
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="ListasTarefas.js"></script>
+</body>
+</html>
+
+/-- https://symbl.cc/pt/html-entities/
