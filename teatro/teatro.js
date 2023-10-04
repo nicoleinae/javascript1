@@ -31,7 +31,41 @@ window.addEventListener("load", () => { //ao carregar a janela...
         figure.appendChild(imgStatus);
         figure.appendChild(figureCap);
 
+        if (i % 24 == 12) figure.style.marginRight = "60px";
+
         dvPalco.appendChild(figure);
+
+        if(i % 24 == 0 && dvPalco.appendChild(document.createElement("br")));
+
     }
 
 });
+
+frm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const poltrona = Number(frm.inPoltrona.value);
+
+    if (poltrona > POLTRONAS) { // se escolher um número não listado no mapa
+        alert("Informe um número de poltronas válido");
+        frm.inPoltrona.value = ""; // limpa o imput
+        frm.poltrona.focus(); // volta no campo do imput ao fechar o alert
+        return;
+    }
+
+    //captura a imagem poltrona filha de divPalco. É -1 pois começa em 0
+    const imgPoltrona = dvPalco.querySelectorAll("img")[poltrona - 1];
+    imgPoltrona.src = "img/reservada.jpg" // modifica os atributos da imagem
+    reservadas.push(poltrona);
+
+    frm.inPoltrona.value = "";
+    frm.inPoltrona.focus();
+})
+
+frm.btnConfirmar.addEventListener("click", () =>{
+
+    for(let i = reservadas.length -1; i >=0; i--){
+        ocupadas.push(reservadas[i]);
+    }
+
+})
