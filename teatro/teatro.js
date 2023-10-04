@@ -46,8 +46,19 @@ frm.addEventListener("submit", (e) => {
 
     const poltrona = Number(frm.inPoltrona.value);
 
+    const ocupadas = localStorage.getItem("teatroOcupadas") 
+    ? localStorage.getItem("teatroOcupadas").split(";")
+    :[];
+
     if (poltrona > POLTRONAS) { // se escolher um número não listado no mapa
         alert("Informe um número de poltronas válido");
+        frm.inPoltrona.value = ""; // limpa o imput
+        frm.poltrona.focus(); // volta no campo do imput ao fechar o alert
+        return;
+    }
+
+    if(ocupadas.includes(poltrona.toString())){
+        alert(`Poltrona ${poltrona} já está reservada`);
         frm.inPoltrona.value = ""; // limpa o imput
         frm.poltrona.focus(); // volta no campo do imput ao fechar o alert
         return;
@@ -63,7 +74,17 @@ frm.addEventListener("submit", (e) => {
 })
 
 frm.btConfirmar.addEventListener("click", () =>{
-    const ocupadas = [];
+
+    if(reservadas.length == 0){
+        alert("Não há poltronas reservadas")
+        frm.inPoltrona.focus();
+        return;
+    }
+
+
+    const ocupadas = localStorage.getItem("teatroOcupadas") 
+    ? localStorage.getItem("teatroOcupadas").split(";")
+    :[];
 
     for(let i = reservadas.length -1; i >=0; i--){
         ocupadas.push(reservadas[i]);
@@ -72,5 +93,7 @@ frm.btConfirmar.addEventListener("click", () =>{
 
         reservadas.pop();
     }
+
+    localStorage.setItem("teatroOcupadas", ocupadas.join(";")); 
 
 })
