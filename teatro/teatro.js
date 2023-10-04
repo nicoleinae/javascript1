@@ -62,10 +62,15 @@ frm.addEventListener("submit", (e) => {
     frm.inPoltrona.focus();
 })
 
-frm.btnConfirmar.addEventListener("click", () =>{
+frm.btConfirmar.addEventListener("click", () =>{
+    const ocupadas = [];
 
     for(let i = reservadas.length -1; i >=0; i--){
         ocupadas.push(reservadas[i]);
+        const imgPoltrona = dvPalco.querySelectorAll ("img") [reservadas[i] -1];
+        imgPoltrona.src = "img/ocupada.jpg"
+
+        reservadas.pop();
     }
 
 })
